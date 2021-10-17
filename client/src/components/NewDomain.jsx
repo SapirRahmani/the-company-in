@@ -22,10 +22,15 @@ const NewDomain = () => {
       if (serverRes.status === 200 && serverRes.data.id) {
         dispatch(addNewDomain(serverRes.data));
 
+        //reset filed and errors
         domainTextFiled.reset();
         setError("");
       } else if (serverRes.data.error) {
+        // api error
         setError(serverRes.data.error.message);
+      } else {
+        //server error
+        setError(serverRes.data.message);
       }
     } catch (error) {
       console.log(error);

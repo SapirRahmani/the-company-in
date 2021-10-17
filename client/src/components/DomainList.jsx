@@ -4,10 +4,6 @@ import DomainItem from "./DomainItem";
 
 const DomainList = ({}) => {
   const domains = useSelector((state) => state.domains);
-  useEffect(() => {
-    console.log(domains);
-  }, [domains]);
-
   return (
     <>
       {domains &&

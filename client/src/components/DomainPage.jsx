@@ -21,11 +21,14 @@ const DomainPage = () => {
     <>
       {fieldToDisplay.map((field) => (
         <div>
-          <p>
-            {currentDomain[field.toString()]
-              ? `${field} : ${currentDomain[field]}`
-              : ""}
-          </p>
+          {currentDomain[field.toString()] &&
+            (field === "logo" ? (
+              <img src={currentDomain[field]} />
+            ) : (
+              <h2 key={field}>
+                {field} : {currentDomain[field]}
+              </h2>
+            ))}
         </div>
       ))}
     </>
